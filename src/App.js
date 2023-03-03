@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Skill from './Skills';
+import Introduction from './Introduction';
+
 
 function App() {
+  const [On, setOn]= useState (false);
+console.log('active', On);
+  const[number,setNumber] =  useState(0)
+  console.log('helooo',number);
+
+  const handleClick = () => {
+    setOn(!On);
+    setNumber(number+1);
+
+ } 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={handleClick}> click this</button>
+      <h1 className={On ? 'On': 'setOn'}>hello! this is chnaging file</h1>
+      < Introduction propsCount={number} />
+      < Skill/>
     </div>
-  );
+  )
 }
 
 export default App;
